@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdminControls"
         mc:Ignorable="d"
-        Title="Admin Controls v 0.1" Height="200" Width="320" Icon="SourceData/Images/logo.png" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" FontFamily="/AdminControls;component/SourceData/Fonts/OpenSans-Regular.ttf" >
+        Title="Admin Controls v 0.1" Height="200" Width="320" Icon="SourceData/Images/logo.png" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" FontFamily="/AdminControls;component/SourceData/Fonts/OpenSans-Regular.ttf" Loaded="Window_Loaded">
     <Grid x:Name="LayoutRoot" Background="DarkGray" >
         <Menu Height="20" VerticalAlignment="Top" >
             <MenuItem Header="Controls">
@@ -19,7 +19,7 @@
                         <Image Source="SourceData/Images/login.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Exit">
+                <MenuItem Header="Exit" Click="MenuItemExit_Click">
                     <MenuItem.Icon>
                         <Image Source="SourceData/Images/exit.png"/>
                     </MenuItem.Icon>
@@ -40,5 +40,13 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
+        
+        
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
+            <Button x:Name="StartTimer" Content="Начать" Height="25" Width="50" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="StartTimer_Click"></Button>
+            <Button x:Name="StopTimer" Content="Остановить" Height="25" Width="70" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="StopTimer_Click"/>
+        </WrapPanel>
+       
+        <TextBlock x:Name="TimerField" HorizontalAlignment="Center"  Height="45" Width="200" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" FontSize="30"/>
     </Grid>
 </Window>
