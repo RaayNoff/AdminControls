@@ -94,18 +94,31 @@
     </None>
     <Resource Include="SourceData\Fonts\OpenSans-Bold.ttf" />
     <Resource Include="SourceData\Fonts\OpenSans-Regular.ttf" />
+    <Resource Include="SourceData\Images\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="SourceData\Images\Logo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="SourceData\Images\databaseAccept.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="SourceData\Images\database26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SourceData\Images\databaseSettings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SourceData\Images\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SourceData\Images\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SourceData\Images\license.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
