@@ -43,8 +43,9 @@
         
         
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
-            <Button x:Name="StartTimer" Content="Начать" Height="25" Width="50" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="StartTimer_Click"></Button>
-            <Button x:Name="StopTimer" Content="Остановить" Height="25" Width="70" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="StopTimer_Click"/>
+            <Button x:Name="StartTimer" Content="Start" Height="25" Width="50" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="StartTimer_Click"></Button>
+            <Button x:Name="PauseTimer" Content="Pause" Height="25" Width="50" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="PauseTimer_Click"/>
+            <Button x:Name="StopTimer" Content="Stop" Height="25" Width="50" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="StopTimer_Click"/>
         </WrapPanel>
        
         <TextBlock x:Name="TimerField" HorizontalAlignment="Center"  Height="45" Width="200" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" FontSize="30"/>

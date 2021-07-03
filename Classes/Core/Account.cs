@@ -16,86 +16,78 @@ namespace AdminControls.Classes.Core
         ACCOUNT_ACTIVE
     }
 
+
     class Account
     {
-        protected ushort ID
+        protected ushort Id
         {
-            get
-            {
-                return ID;
-            }
+            get => Id;
             set
             {
                 if (value >= 0)
-                    ID = value;
+                    Id = value;
             }
         }
-        protected string Name
+        protected string Username
         {
-            get
-            {
-                return Name;
-            }
-
+            get => Username;
             set
             {
                 if (value.Length <= 32)
-                    Name = value;
+                    Username = value;
             }
         }
 
         private string Password { get; set; }
 
-        byte Statement
-        {
-            get
-            {
-                return Statement;
-            }
-            set
-            {
-                switch (value)
-                {
-                    default:
-                        {
-                            Statement = Convert.ToByte(AccountStatements.ACCOUNT_AVAILABLE);
-                            break;
-                        }
-                    case 1:
-                        {
-                            Statement = Convert.ToByte(AccountStatements.ACCOUNT_INACTIVE);
-                            break;
-                        }
-                    case 2:
-                        {
-                            Statement = Convert.ToByte(AccountStatements.ACCOUNT_AFK);
-                            break;
-                        }
-                    case 3:
-                        {
-                            Statement = Convert.ToByte(AccountStatements.ACCOUNT_BLOCKED);
-                            break;
-                        }
-                    case 4:
-                        {
-                            Statement = Convert.ToByte(AccountStatements.ACCOUNT_ACTIVE);
-                            break;
-                        }
-                }
-            }
-        }
-
+        AccountStatements Statement { get => Statement; set => ChangeStatement(value); }
         protected bool IsAvailable { get; set; }
 
-        public Account(ushort id, string name, string password, bool isAvailable)
+        public Account(ushort Id, string Username, bool IsAvailable, AccountStatements Statement = AccountStatements.ACCOUNT_AVAILABLE)
         {
-            ID = id;
-            Name = name;
-            IsAvailable = isAvailable;
-            Statement = 0;
+            this.Id = Id;
+            this.Username = Username;
+            this.IsAvailable = IsAvailable;
+            this.Statement = Statement;
+
 
             var PasswordGenerator = new PasswordGenerator();
             Password = PasswordGenerator.Generate();
+        }
+
+        private void ChangeStatement(AccountStatements value)
+        {
+            switch (value)
+            {
+                case AccountStatements.ACCOUNT_AVAILABLE:
+                    {
+                        Statement = AccountStatements.ACCOUNT_AVAILABLE;
+                        break;
+                    }
+                case AccountStatements.ACCOUNT_ACTIVE:
+                    {
+                        Statement = AccountStatements.ACCOUNT_ACTIVE;
+                        break;
+                    }
+                case AccountStatements.ACCOUNT_AFK:
+                    {
+                        Statement = AccountStatements.ACCOUNT_AFK;
+                        break;
+                    }
+                case AccountStatements.ACCOUNT_BLOCKED:
+                    {
+                        Statement = AccountStatements.ACCOUNT_BLOCKED;
+                        break;
+                    }
+                case AccountStatements.ACCOUNT_INACTIVE:
+                    {
+                        Statement = AccountStatements.ACCOUNT_INACTIVE;
+                        break;
+                    }
+                default:
+                    Console.WriteLine("Not valid statement");
+                    break;
+            }
         }
     }
 }
